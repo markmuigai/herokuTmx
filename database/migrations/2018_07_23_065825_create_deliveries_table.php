@@ -15,6 +15,13 @@ class CreateDeliveriesTable extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('vehicle_id');
+            $table->string('pickupAddress');
+            $table->string('destAddress');
+            $table->string('packageInfo');
+            $table->string('packageImg')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
