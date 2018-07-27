@@ -32,4 +32,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Vehicle::class);
     }
+
+    //A user can have many deliveries
+    public function Delivery()
+    {
+        return $this->hasMany(Delivery::class);
+    }
 }
