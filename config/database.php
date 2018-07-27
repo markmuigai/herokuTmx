@@ -14,6 +14,7 @@ return [
     */
 
     //'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,8 +32,7 @@ return [
     |
     */
 
-    //connection for postgres
-    //postgres://imkyjkqoknfqsl:6f176941adb63be21b0debed7d42487dbcbdc980d4ac875edbe8cec63838be28@ec2-54-83-22-244.compute-1.amazonaws.com:5432/d9h8i5im3v6ntd
+
     $url = parse_url(getenv("DATABASE_URL"));
 
     $host = $url["host"];
