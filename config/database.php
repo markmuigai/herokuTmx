@@ -33,13 +33,6 @@ return [
     */
 
 
-    $url = parse_url(getenv("DATABASE_URL"));
-
-    $host = $url["host"];
-    $username = $url["user"];
-    $password = $url["pass"];
-    $database = substr($url["path"], 1);
-
     'connections' => [
 
         'sqlite' => [
@@ -61,16 +54,16 @@ return [
         //     'sslmode' => 'prefer',
         // ],
 
-        'pgsql' => array(
+        'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'host'     => parse_url(getenv("DATABASE_URL"))["host"],
+            'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
+            'username' => parse_url(getenv("DATABASE_URL"))["user"],
+            'password' => parse_url(getenv("DATABASE_URL"))["pass"],
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
-        ),
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
