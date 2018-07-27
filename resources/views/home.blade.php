@@ -5,11 +5,11 @@
 	<div class="row">
 		<div class="col-md-6" style="padding: 5em">
 			<form action="" method="post" style="margin: 3em; padding: 3em; border-radius:10px " class="bg-primary">
-				{{csrf_field()}}
+				@csrf
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<input type="text" class="form-control" name="pickupAddress" placeholder="Pickup Location">
+							<input type="text" class="form-control" name="pickAddress" placeholder="Pickup Location">
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -24,6 +24,7 @@
 				<div class="form-group">
 					<input type="text" class="form-control" name="pickupAddress" placeholder="Package Image">
 				</div>
+				
 				<button class="btn btn-light">Get Driver</button>
 			</form>
 			<!-- @include('Drivers.yourDriver') -->
@@ -32,6 +33,7 @@
 			{!! Mapper::render() !!}	
 		</div>	
 	</div>
+	
 
 
 </div>

@@ -10,8 +10,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                @auth
+                @if(Auth::user()->vehicle()->exists() == 1)
                 <li class="nav-item">
-                    <a class="nav-link" href="/driver">Delivery Status</a>
+                    <a class="nav-link" href="/todeliver">Delivery Requests</a>
+                </li>
+                @else
+                <!--  -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/driver/mydelivery">Current Delivery</a>
+                </li>
+                @endif
+                @endauth
+                <li class="nav-item">
+                    <a class="nav-link" href="/mydeliveries">My Delivery Status</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Deliveries History</a>
@@ -19,10 +31,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="">All drivers</a>
                 </li>
+                @auth
+                @if(Auth::user()->vehicle()->exists() == 0)
                 <li class="nav-item">
                     <a class="nav-link" href="/driver">Sign up as a driver</a>
                 </li>
+                @endif
+                @endauth
             </ul>
+
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
